@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Praveen B's Data Analyst Portfolio">
+  <title>Praveen B | Data Analyst Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px 8%;
+      background: #111a2e;
+      border-bottom: 1px solid #26344e;
+    }
+
+    nav h2 {
+      color: #60a5fa;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 80px 10%;
+      background: radial-gradient(circle at top right, #172c4b, #0b1120 65%);
+    }
+
+    .eyebrow {
+      color: #60a5fa;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.15;
+      margin: 18px 0;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #b8c4d8;
+      font-size: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      background: #3b82f6;
+      color: white;
+    }
+
+    .btn.outline {
+      background: transparent;
+      border: 1px solid #60a5fa;
+      color: #93c5fd;
+    }
+
+    section {
+      padding: 65px 10%;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin-bottom: 24px;
+    }
+
+    .section-title span {
+      color: #60a5fa;
+    }
+
+    .about-text {
+      max-width: 800px;
+      color: #b8c4d8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+      background: #111a2e;
+      border: 1px solid #26344e;
+      border-radius: 14px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #60a5fa;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #93c5fd;
+    }
+
+    .card p {
+      color: #b8c4d8;
+      margin-bottom: 16px;
+    }
+
+    .card a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .skill {
+      display: inline-block;
+      margin: 5px;
+      padding: 9px 15px;
+      background: #17243b;
+      border: 1px solid #30415e;
+      border-radius: 20px;
+      color: #bfdbfe;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111a2e;
+      color: #94a3b8;
+      border-top: 1px solid #26344e;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 18px 6%;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 12px;
+      }
+
+      .hero {
+        padding: 65px 7%;
+      }
+
+      section {
+        padding: 48px 7%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h2>Praveen B.</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Welcome to my portfolio</p>
+      <h1>Hi, I'm Praveen B.<br>
+        <span>Data Analyst</span>
+      </h1>
+      <p>
+        I use data analysis and visualisation to turn raw data
+        into meaningful insights that support better business decisions.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn">Explore My Projects</a>
+        <a href="Praveen_B_Resume.pdf" class="btn outline"
+           target="_blank" rel="noopener noreferrer">View Resume</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2 class="section-title">About <span>Me</span></h2>
+      <p class="about-text">
+        I am an Electronics and Communication Engineering student
+        graduating in 2026, building my career in data analytics.
+        I enjoy exploring datasets, finding patterns, preparing reports,
+        and creating dashboards that communicate business performance.
+        I am developing practical skills through hands-on projects.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Technical <span>Skills</span></h2>
+      <div>
+        <span class="skill">Microsoft Excel</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">Python</span>
+        <span class="skill">Data Cleaning</span>
+        <span class="skill">Pivot Tables</span>
+        <span class="skill">Data Visualisation</span>
+        <span class="skill">Dashboard Development</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">My <span>Projects</span></h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Pizza Sales Analysis</h3>
+          <p>
+            Explore a sales analytics project focused on revenue,
+            order trends, product performance, and business KPIs.
+          </p>
+          <a href="pizza-sales.html">View Project Details →</a>
+          <br><br>
+          <a href="https://github.com/praveenbaskaran2004/pizza-sales-analysis"
+             target="_blank" rel="noopener noreferrer">
+            View GitHub Repository →
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Swiggy Sales Dashboard</h3>
+          <p>
+            A food delivery analytics project to explore sales performance,
+            ordering patterns, and dashboard reporting.
+          </p>
+          <a href="swiggy-sales.html">View Project Details →</a>
+        </article>
+
+        <article class="card">
+          <h3>E-Commerce Dashboard</h3>
+          <p>
+            A dashboard project designed to explore e-commerce performance
+            and present key metrics for business analysis.
+          </p>
+          <a href="https://github.com/praveenbaskaran2004"
+             target="_blank" rel="noopener noreferrer">
+            Explore My GitHub →
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Let's <span>Connect</span></h2>
+      <p class="about-text">
+        I welcome opportunities to connect with analytics professionals
+        and explore entry-level data analyst roles.
+      </p>
+
+      <div class="buttons contact-links">
+        <a class="btn"
+           href="https://www.linkedin.com/in/praveen-b-255183436/"
+           target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a class="btn outline"
+           href="https://github.com/praveenbaskaran2004"
+           target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Praveen B. Built with HTML and CSS.</p>
+  </footer>
+
+</body>
+</html>
