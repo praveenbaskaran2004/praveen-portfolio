@@ -4,10 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Praveen B's Data Analyst Portfolio">
+  <meta name="description" content="Praveen B - Data Analyst Portfolio featuring SQL, Excel, Power BI, Python, and analytics projects.">
   <title>Praveen B | Data Analyst Portfolio</title>
 
   <style>
+    :root {
+      --bg: #07111f;
+      --panel: #101e31;
+      --text: #f2f6fc;
+      --muted: #a8b7cb;
+      --blue: #58a6ff;
+      --border: #243650;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -19,312 +28,461 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #0b1120;
-      color: #e5e7eb;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 17, 31, 0.96);
+      border-bottom: 1px solid var(--border);
+    }
+
     nav {
+      min-height: 72px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 15px;
-      padding: 20px 8%;
-      background: #111a2e;
-      border-bottom: 1px solid #26344e;
+      font-size: 0.92rem;
     }
 
-    nav h2 {
-      color: #60a5fa;
-    }
-
-    nav a {
-      color: #e5e7eb;
-      text-decoration: none;
-      margin-left: 18px;
-    }
-
-    nav a:hover {
-      color: #60a5fa;
+    .nav-links a:hover {
+      color: var(--blue);
     }
 
     .hero {
-      min-height: 78vh;
+      min-height: 530px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 80px 10%;
-      background: radial-gradient(circle at top right, #172c4b, #0b1120 65%);
+      align-items: center;
+      justify-content: space-between;
+      gap: 45px;
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .hero-content {
+      flex: 1;
     }
 
     .eyebrow {
-      color: #60a5fa;
+      color: var(--blue);
       font-weight: bold;
       letter-spacing: 2px;
       text-transform: uppercase;
+      font-size: 0.85rem;
     }
 
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 68px);
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       line-height: 1.15;
-      margin: 18px 0;
+      margin: 16px 0;
     }
 
-    .hero h1 span {
-      color: #60a5fa;
+    h1 span {
+      color: var(--blue);
     }
 
     .hero p {
-      max-width: 650px;
-      color: #b8c4d8;
-      font-size: 18px;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .hero-photo {
+      width: 270px;
+      height: 270px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 4px solid var(--blue);
+      object-fit: cover;
+      object-position: center;
+      box-shadow: 0 0 35px rgba(88, 166, 255, 0.15);
     }
 
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 20px;
     }
 
     .btn {
       display: inline-block;
-      text-decoration: none;
-      padding: 12px 20px;
+      padding: 11px 20px;
       border-radius: 8px;
       font-weight: bold;
-      background: #3b82f6;
-      color: white;
+      border: 1px solid var(--blue);
+      transition: 0.2s;
     }
 
-    .btn.outline {
-      background: transparent;
-      border: 1px solid #60a5fa;
-      color: #93c5fd;
+    .btn-primary {
+      background: var(--blue);
+      color: #07111f;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.88;
     }
 
     section {
-      padding: 65px 10%;
+      padding: 65px 0;
+      scroll-margin-top: 80px;
     }
 
     .section-title {
-      font-size: 30px;
-      margin-bottom: 24px;
+      font-size: 2rem;
+      margin-bottom: 12px;
     }
 
-    .section-title span {
-      color: #60a5fa;
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 30px;
     }
 
-    .about-text {
-      max-width: 800px;
-      color: #b8c4d8;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      padding: 24px;
-      background: #111a2e;
-      border: 1px solid #26344e;
+    .about-box,
+    .card,
+    .skill {
+      background: var(--panel);
+      border: 1px solid var(--border);
       border-radius: 14px;
-      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #60a5fa;
+    .about-box {
+      padding: 28px;
+      color: var(--muted);
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #93c5fd;
-    }
-
-    .card p {
-      color: #b8c4d8;
-      margin-bottom: 16px;
-    }
-
-    .card a {
-      color: #60a5fa;
-      text-decoration: none;
-      font-weight: bold;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 15px;
     }
 
     .skill {
+      text-align: center;
+      padding: 20px 12px;
+      font-weight: bold;
+    }
+
+    .skill span {
+      display: block;
+      color: var(--blue);
+      font-size: 0.85rem;
+      margin-top: 5px;
+      font-weight: normal;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-tag {
       display: inline-block;
-      margin: 5px;
-      padding: 9px 15px;
-      background: #17243b;
-      border: 1px solid #30415e;
+      color: var(--blue);
+      background: #162d48;
+      padding: 4px 10px;
       border-radius: 20px;
-      color: #bfdbfe;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 8px;
+    }
+
+    .project-links a,
+    .contact-links a {
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    .project-links a:hover,
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 35px 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 12px 0 22px;
     }
 
     .contact-links {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 24px;
     }
 
     footer {
+      border-top: 1px solid var(--border);
       text-align: center;
-      padding: 25px;
-      background: #111a2e;
-      color: #94a3b8;
-      border-top: 1px solid #26344e;
+      color: var(--muted);
+      padding: 25px 10px;
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       nav {
-        padding: 18px 6%;
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
       }
 
-      nav a {
-        margin-left: 0;
-        margin-right: 12px;
+      .nav-links {
+        gap: 12px;
       }
 
       .hero {
-        padding: 65px 7%;
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 25px;
       }
 
-      section {
-        padding: 48px 7%;
+      .hero-photo {
+        width: 200px;
+        height: 200px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">Praveen B.</a>
 
-  <nav>
-    <h2>Praveen B.</h2>
-    <div>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
   <main>
-    <div class="hero">
-      <p class="eyebrow">Welcome to my portfolio</p>
-      <h1>Hi, I'm Praveen B.<br>
-        <span>Data Analyst</span>
-      </h1>
-      <p>
-        I use data analysis and visualisation to turn raw data
-        into meaningful insights that support better business decisions.
-      </p>
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Aspiring Data Analyst</div>
+        <h1>Hi, I'm <span>Praveen B.</span></h1>
 
-      <div class="buttons">
-        <a href="#projects" class="btn">Explore My Projects</a>
-        <a href="Praveen_B_Resume.pdf" class="btn outline"
-           target="_blank" rel="noopener noreferrer">View Resume</a>
+        <p>
+          I turn raw data into meaningful insights using SQL, Excel,
+          Power BI, and Python. I enjoy solving business problems,
+          analyzing trends, and building interactive dashboards.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#projects">Explore Projects</a>
+          <a class="btn" href="Praveen_B_Resume.pdf" target="_blank"
+             rel="noopener">View Resume</a>
+        </div>
       </div>
-    </div>
+
+      <img
+        class="hero-photo"
+        src="profile.png"
+        alt="Praveen B profile photo"
+        onerror="this.onerror=null;this.src='https://placehold.co/400x400/101e31/58a6ff?text=Praveen+B';"
+      >
+    </section>
 
     <section id="about">
-      <h2 class="section-title">About <span>Me</span></h2>
-      <p class="about-text">
-        I am an Electronics and Communication Engineering student
-        graduating in 2026, building my career in data analytics.
-        I enjoy exploring datasets, finding patterns, preparing reports,
-        and creating dashboards that communicate business performance.
-        I am developing practical skills through hands-on projects.
-      </p>
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          Turning data into useful business decisions.
+        </p>
+
+        <div class="about-box">
+          I am an Electronics and Communication Engineering student
+          graduating in 2026, building my career in data analytics.
+          I work with data cleaning, SQL queries, Excel analysis,
+          dashboard creation, and business reporting. My goal is to
+          transform complex datasets into clear, actionable insights
+          that help organizations make better decisions.
+        </div>
+      </div>
     </section>
 
     <section id="skills">
-      <h2 class="section-title">Technical <span>Skills</span></h2>
-      <div>
-        <span class="skill">Microsoft Excel</span>
-        <span class="skill">SQL</span>
-        <span class="skill">Power BI</span>
-        <span class="skill">Python</span>
-        <span class="skill">Data Cleaning</span>
-        <span class="skill">Pivot Tables</span>
-        <span class="skill">Data Visualisation</span>
-        <span class="skill">Dashboard Development</span>
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">
+          Tools I use for data analysis and visualization.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill">SQL<span>Queries & Analysis</span></div>
+          <div class="skill">Microsoft Excel<span>Pivot Tables & Dashboards</span></div>
+          <div class="skill">Power BI<span>Data Visualization</span></div>
+          <div class="skill">Python<span>Data Analysis Basics</span></div>
+          <div class="skill">Power Query<span>Data Transformation</span></div>
+          <div class="skill">Problem Solving<span>Business Insights</span></div>
+        </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2 class="section-title">My <span>Projects</span></h2>
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">
+          Practical projects demonstrating my analytics skills.
+        </p>
 
-      <div class="grid">
-        <article class="card">
-          <h3>Pizza Sales Analysis</h3>
-          <p>
-            Explore a sales analytics project focused on revenue,
-            order trends, product performance, and business KPIs.
-          </p>
-          <a href="pizza-sales.html">View Project Details →</a>
-          <br><br>
-          <a href="https://github.com/praveenbaskaran2004/pizza-sales-analysis"
-             target="_blank" rel="noopener noreferrer">
-            View GitHub Repository →
-          </a>
-        </article>
+        <div class="projects-grid">
+          <article class="card">
+            <span class="project-tag">SQL · Analytics</span>
+            <h3>Pizza Sales Analysis</h3>
+            <p>
+              Analyzed pizza sales data to explore revenue,
+              order trends, product performance, and key business KPIs.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/praveenbaskaran2004/pizza-sales-analysis"
+                 target="_blank" rel="noopener">GitHub Repository ↗</a>
+            </div>
+          </article>
 
-        <article class="card">
-          <h3>Swiggy Sales Dashboard</h3>
-          <p>
-            A food delivery analytics project to explore sales performance,
-            ordering patterns, and dashboard reporting.
-          </p>
-          <a href="swiggy-sales.html">View Project Details →</a>
-        </article>
+          <article class="card">
+            <span class="project-tag">Excel · Dashboard</span>
+            <h3>E-Commerce Sales Dashboard</h3>
+            <p>
+              Built an Excel dashboard to explore sales performance,
+              revenue trends, and business metrics using data analysis
+              and interactive reporting.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/praveenbaskaran2004"
+                 target="_blank" rel="noopener">Explore GitHub ↗</a>
+            </div>
+          </article>
 
-        <article class="card">
-          <h3>E-Commerce Dashboard</h3>
-          <p>
-            A dashboard project designed to explore e-commerce performance
-            and present key metrics for business analysis.
-          </p>
-          <a href="https://github.com/praveenbaskaran2004"
-             target="_blank" rel="noopener noreferrer">
-            Explore My GitHub →
-          </a>
-        </article>
+          <article class="card">
+            <span class="project-tag">Food Delivery · Analytics</span>
+            <h3>Swiggy Sales Analysis</h3>
+            <p>
+              A food delivery analytics project focused on order
+              patterns, customer spending, city performance, and
+              revenue-related KPIs.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/praveenbaskaran2004"
+                 target="_blank" rel="noopener">Explore GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="project-tag">IoT · Engineering</span>
+            <h3>Industrial Motor Speed Control</h3>
+            <p>
+              Final-year engineering project using PID control and
+              MQTT communication to monitor motor parameters and
+              support overload and stall alerts.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2 class="section-title">Let's <span>Connect</span></h2>
-      <p class="about-text">
-        I welcome opportunities to connect with analytics professionals
-        and explore entry-level data analyst roles.
-      </p>
+      <div class="container">
+        <div class="contact-box">
+          <h2 class="section-title">Let's Connect</h2>
+          <p>
+            Interested in data analytics opportunities, projects,
+            and professional collaboration.
+          </p>
 
-      <div class="buttons contact-links">
-        <a class="btn"
-           href="https://www.linkedin.com/in/praveen-b-255183436/"
-           target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-        <a class="btn outline"
-           href="https://github.com/praveenbaskaran2004"
-           target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/praveen-b-255183436/"
+               target="_blank" rel="noopener">LinkedIn ↗</a>
+
+            <a href="https://github.com/praveenbaskaran2004"
+               target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+
+          <div class="buttons" style="justify-content:center">
+            <a class="btn" href="Praveen_B_Resume.pdf"
+               target="_blank" rel="noopener">Open My Resume</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Praveen B. Built with HTML and CSS.</p>
+    <p>© 2026 Praveen B. Data Analyst Portfolio.</p>
+    <p>Built with HTML and CSS · Hosted on GitHub Pages</p>
   </footer>
-
 </body>
 </html>
